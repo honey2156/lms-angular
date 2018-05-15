@@ -12,7 +12,8 @@ const routes: Routes = [
   { path: 'student', component: StudentsComponent },
   { path: 'subject', component: SubjectsComponent },
   { path: 'teacher', component: TeachersComponent },
-  { path: '', component: BatchesComponent }
+  { path: 'home', component: BatchesComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' }
 ]
 
 @NgModule({
