@@ -1,11 +1,24 @@
+<div class="container card p-2 mt-2">
+    <div style="text-align: center; ">
+      <h4>Add new Teacher</h4>
+      <hr>
+    </div>
 <div class="input-group mb-3">
   <input type="text" #teacherInput class="form-control" placeholder="Enter teacher name">
   <div class="input-group-append">
     <button class="btn btn-primary" (click)="addTeacher(teacherInput.value);teacherInput.value=''">Add Teacher</button>
   </div>
 </div>
-<div style="overflow: auto; height: 400px; margin-top: 50px">
+</div>
+
+<div class="container card p-2 mt-4">
+    <div style="text-align: center; ">
+      <h4>Teachers</h4>
+      <hr>
+    </div>
+<div style="overflow: auto; height: 400px;">
   <ul class="list-group">
     <li *ngFor="let teacher of teachers" class="list-group-item">{{teacher.name}}</li>
   </ul>
+</div>
 </div>

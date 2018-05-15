@@ -1,12 +1,24 @@
-<div class="input-group mb-3">
-  <input type="text" #studentInput class="form-control" placeholder="Enter Student name">
-  <div class="input-group-append">
-    <button class="btn btn-primary" (click)="addStudent(studentInput.value);studentInput.value=''">Add Student</button>
+<div class="container card p-2 mt-2">
+  <div style="text-align: center; ">
+    <h4>Add new Student</h4>
+    <hr>
+  </div>
+  <div class="input-group mb-3">
+    <input type="text" #studentInput class="form-control" placeholder="Enter Student name">
+    <div class="input-group-append">
+      <button class="btn btn-primary" (click)="addStudent(studentInput.value);studentInput.value=''">Add Student</button>
+    </div>
   </div>
 </div>
 
-<div style="overflow: auto; height: 400px; margin-top: 50px">
-  <ul class="list-group">
-    <li *ngFor="let student of students" class="list-group-item">{{student.name}}</li>
-  </ul>
+<div class="container card p-2 mt-4">
+  <div style="text-align: center; ">
+    <h4>Students</h4>
+    <hr>
+  </div>
+  <div style="overflow: auto; height: 400px;">
+    <ul class="list-group">
+      <li *ngFor="let student of students" class="list-group-item">{{student.name}}</li>
+    </ul>
+  </div>
 </div>
