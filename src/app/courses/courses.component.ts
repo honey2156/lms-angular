@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Course } from '../Model/Course';
+import { Batch } from '../Model/batch';
 import { CourseService } from '../Service/course.service';
 
 @Component({
@@ -10,6 +11,7 @@ import { CourseService } from '../Service/course.service';
 export class CoursesComponent implements OnInit {
 
   courses: Course[]
+  batches: Batch[]
 
   constructor(private courseService: CourseService) {
     this.courses = []
@@ -35,6 +37,13 @@ export class CoursesComponent implements OnInit {
       .subscribe((course) => {
         this.courses.push(course)
         this.getCourses()
+      })
+  }
+
+  getBatchByCourse(course: Course) {
+    this.courseService.getBatchByCourseId(course.id)
+      .subscribe((batches) => {
+        this.batches = batches
       })
   }
 
