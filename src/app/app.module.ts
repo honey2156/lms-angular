@@ -8,6 +8,13 @@ import { StudentsComponent } from './students/students.component';
 import { SubjectsComponent } from './subjects/subjects.component';
 import { TeachersComponent } from './teachers/teachers.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { TeacherService } from './teacher.service';
+import { StudentService } from './student.service';
+import { CourseService } from './course.service';
+import { SubjectService } from './subject.service';
+import { HttpClientModule } from '@angular/common/http';
+import { BatchesComponent } from './batches/batches.component';
+import { BatchService } from './batch.service';
 
 
 @NgModule({
@@ -16,13 +23,15 @@ import { AppRoutingModule } from './/app-routing.module';
     CoursesComponent,
     StudentsComponent,
     SubjectsComponent,
-    TeachersComponent
+    TeachersComponent,
+    BatchesComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [TeacherService, StudentService, CourseService, SubjectService, BatchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

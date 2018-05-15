@@ -1,3 +1,12 @@
-<p>
-  courses works!
-</p>
+<div class="input-group mb-3">
+  <input type="text" #inp class="form-control" placeholder="Enter course name">
+  <div class="input-group-append">
+    <button class="btn btn-primary" (click)="addCourse(inp.value)">Add Course</button>
+  </div>
+</div>
+
+<div style="overflow: auto; height: 400px; margin-top: 50px">
+  <ul class="list-group">
+    <li *ngFor="let course of courses" class="list-group-item">{{course.name}}</li>
+  </ul>
+</div>

@@ -1,0 +1,10 @@
+ <div style="text-align: center">
+   <h3>Upcoming Batches</h3>
+   <hr>
+ </div>
+ <div style="overflow: auto; height: 400px; margin-top: 50px">
+    <ul class="list-group">
+      <li *ngFor="let batch of batches" class="list-group-item">{{batch.name}}</li>
+    </ul>
+  </div>
+  

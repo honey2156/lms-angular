@@ -1,3 +1,12 @@
-<p>
-  students works!
-</p>
+<div class="input-group mb-3">
+  <input type="text" class="form-control" placeholder="Enter Student name">
+  <div class="input-group-append">
+    <button class="btn btn-primary">Add Student</button>
+  </div>
+</div>
+
+<div style="overflow: auto; height: 400px; margin-top: 50px">
+  <ul class="list-group">
+    <li *ngFor="let student of students" class="list-group-item">{{student.name}}</li>
+  </ul>
+</div>
