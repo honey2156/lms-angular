@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Student } from '../Model/student';
 import { StudentService } from '../Service/student.service';
+import { Batch } from '../Model/batch'
+import { BatchService } from '../Service/batch.service';
 
 @Component({
   selector: 'app-students',
@@ -10,13 +12,16 @@ import { StudentService } from '../Service/student.service';
 export class StudentsComponent implements OnInit {
 
   students: Student[]
+  batches: Batch[]
+  selectedStudent: Student
 
-  constructor(private studentService: StudentService) {
+  constructor(private studentService: StudentService, private batchService: BatchService) {
     this.students = []
   }
 
   ngOnInit() {
     this.getStudents()
+    this.getBatches()
   }
 
   getStudents() {
@@ -26,7 +31,18 @@ export class StudentsComponent implements OnInit {
       })
   }
 
-  addStudent(name:string){
+  getBatches() {
+    this.batchService.getBatches()
+      .subscribe((batches) => {
+        this.batches = batches
+      })
+  }
+
+  onSelect(student: Student) {
+    this.selectedStudent = student
+  }
+
+  addStudent(name: string) {
     name = name.trim()
     if (!name) {
       return
@@ -36,5 +52,14 @@ export class StudentsComponent implements OnInit {
         this.students.push(student)
         this.getStudents()
       })
+  }
+
+  enrollStudentInBatch(studentId: number, batchId: number) {
+    if (studentId && batchId) {
+      this.studentService.enrollStudentInBatch(studentId, batchId)
+        .subscribe(() => {
+          console.log('successfully enrolled')
+        })
+    }
   }
 }

@@ -14,6 +14,7 @@ import { CoursesComponent } from './courses/courses.component';
 import { StudentsComponent } from './students/students.component';
 import { SubjectsComponent } from './subjects/subjects.component';
 import { TeachersComponent } from './teachers/teachers.component';
+import { StudentDetailComponent } from './student-detail/student-detail.component';
 
 
 
@@ -24,7 +25,8 @@ import { TeachersComponent } from './teachers/teachers.component';
     StudentsComponent,
     SubjectsComponent,
     TeachersComponent,
-    BatchesComponent
+    BatchesComponent,
+    StudentDetailComponent
   ],
   imports: [
     BrowserModule,
