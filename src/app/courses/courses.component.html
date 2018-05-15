@@ -1,7 +1,13 @@
-<div class="input-group mb-3">
-  <input type="text" #courseInput class="form-control" placeholder="Enter course name">
-  <div class="input-group-append">
-    <button class="btn btn-primary" (click)="addCourse(courseInput.value);courseInput.value=''">Add Course</button>
+<div class="container card p-2 mt-2">
+  <div style="text-align: center; ">
+    <h4>Add new Course</h4>
+    <hr>
+  </div>
+  <div class="input-group mb-3">
+    <input type="text" #courseInput class="form-control" placeholder="Enter course name">
+    <div class="input-group-append">
+      <button class="btn btn-primary" (click)="addCourse(courseInput.value);courseInput.value=''">Add Course</button>
+    </div>
   </div>
 </div>
 
