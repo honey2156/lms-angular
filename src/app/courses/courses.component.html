@@ -5,15 +5,50 @@
   </div>
 </div>
 
-<div style="overflow: auto; height: 400px; margin-top: 50px">
-  <ul class="list-group">
-    <li *ngFor="let course of courses" (click)="getBatchByCourse(course)" class="list-group-item">{{course.name}}</li>
-  </ul>
+<div class="row" style="margin-top: 50px">
+  <div class="col card m-2">
+    <div style="text-align: center; ">
+      <h4>Courses</h4>
+      <hr>
+    </div>
+    <div style="overflow: auto; height: 400px; ">
+      <ul class="list-group ">
+        <li *ngFor="let course of courses " (click)="getBatchByCourse(course) " class="list-group-item ">{{course.name}}</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="col card m-2">
+    <div style="text-align: center; ">
+      <h4>Batches</h4>
+      <hr>
+    </div>
+    <div style="overflow: auto; height: 400px; ">
+      <ul class="list-group ">
+        <li *ngFor="let batch of batches " class="list-group-item ">{{batch.name}}</li>
+      </ul>
+    </div>
+  </div>
 </div>
 
-<div style="overflow: auto; height: 400px; margin-top: 50px">
-    <ul class="list-group">
-      <li *ngFor="let batch of batches" class="list-group-item">{{batch.name}}</li>
-    </ul>
+<div class="container card p-2 mt-2">
+  <div style="text-align: center; ">
+    <h4>Add new Batch</h4>
+    <hr>
   </div>
-  
+  <div class="row">
+    <div class="col">
+      <select class="form-control" #selectedCourseId>
+        <option *ngFor="let course of courses" [value]="course.id">{{course.name}}</option>
+      </select>
+    </div>
+    <div class="col">
+      <div class="input-group mb-3">
+        <input type="text" #batchCourseInput class="form-control" placeholder="Enter batch name">
+        <div class="input-group-append">
+          <button class="btn btn-primary" (click)="addBatchToCourse(batchCourseInput.value, selectedCourseId.value);batchCourseInput.value='';">Add Batch</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

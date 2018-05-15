@@ -21,7 +21,11 @@ export class CourseService {
     return this.http.post<Course>('http://localhost:8080/api/courses', course, httpOptions)
   }
 
-  getBatchByCourseId(courseId: number):Observable<Batch[]> {
-    return this.http.get<Batch[]>('http://localhost:8080/api/courses/'+courseId+'/batches')
+  getBatchByCourseId(courseId: number): Observable<Batch[]> {
+    return this.http.get<Batch[]>('http://localhost:8080/api/courses/' + courseId + '/batches')
+  }
+
+  addBatchToCourse(batch: Batch, courseId: number): Observable<Batch> {
+    return this.http.post<Batch>('http://localhost:8080/api/courses/' + courseId + '/batches', batch, httpOptions)
   }
 }

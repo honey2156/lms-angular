@@ -12,6 +12,7 @@ export class CoursesComponent implements OnInit {
 
   courses: Course[]
   batches: Batch[]
+  selectedCourseId: number
 
   constructor(private courseService: CourseService) {
     this.courses = []
@@ -44,6 +45,16 @@ export class CoursesComponent implements OnInit {
     this.courseService.getBatchByCourseId(course.id)
       .subscribe((batches) => {
         this.batches = batches
+      })
+  }
+
+  addBatchToCourse(name: string, selectedCourseId:number) {
+    if(!selectedCourseId){
+      return
+    }
+    this.courseService.addBatchToCourse({ name } as Batch, selectedCourseId)
+      .subscribe((batch) => {
+        console.log('added ' + batch.name)
       })
   }
 
