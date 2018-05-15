@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { StudentService } from '../student.service';
-import { Student } from '../student'
+import { Student } from '../Model/student';
+import { StudentService } from '../Service/student.service';
 
 @Component({
   selector: 'app-students',
@@ -23,6 +23,18 @@ export class StudentsComponent implements OnInit {
     this.studentService.getStudents()
       .subscribe((students) => {
         this.students = students
+      })
+  }
+
+  addStudent(name:string){
+    name = name.trim()
+    if (!name) {
+      return
+    }
+    this.studentService.addStudent({ name } as Student)
+      .subscribe((student) => {
+        this.students.push(student)
+        this.getStudents()
       })
   }
 }

@@ -1,7 +1,7 @@
 <div class="input-group mb-3">
-  <input type="text" class="form-control" placeholder="Enter Subject name">
+  <input type="text" #subjectInput class="form-control" placeholder="Enter Subject name">
   <div class="input-group-append">
-    <button class="btn btn-primary">Add Subject</button>
+    <button class="btn btn-primary" (click)="addSubject(subjectInput.value)">Add Subject</button>
   </div>
 </div>
 <div style="overflow: auto; height: 400px; margin-top: 50px">

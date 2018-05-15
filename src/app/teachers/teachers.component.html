@@ -1,7 +1,7 @@
 <div class="input-group mb-3">
-  <input type="text" class="form-control" placeholder="Enter teacher name">
+  <input type="text" #teacherInput class="form-control" placeholder="Enter teacher name">
   <div class="input-group-append">
-    <button class="btn btn-primary">Add Teacher</button>
+    <button class="btn btn-primary" (click)="addTeacher(teacherInput.value)">Add Teacher</button>
   </div>
 </div>
 <div style="overflow: auto; height: 400px; margin-top: 50px">

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CourseService } from '../course.service';
-import { Course } from '../Course'
+import { Course } from '../Model/Course';
+import { CourseService } from '../Service/course.service';
 
 @Component({
   selector: 'app-courses',
@@ -23,6 +23,18 @@ export class CoursesComponent implements OnInit {
     this.courseService.getCourses()
       .subscribe((courses) => {
         this.courses = courses
+      })
+  }
+
+  addCourse(name: string) {
+    name = name.trim()
+    if (!name) {
+      return
+    }
+    this.courseService.addCourse({ name } as Course)
+      .subscribe((course) => {
+        this.courses.push(course)
+        this.getCourses()
       })
   }
 
