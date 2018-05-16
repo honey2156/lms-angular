@@ -11,21 +11,23 @@ const httpOptions = {
 @Injectable()
 export class CourseService {
 
+  URL = 'https://fathomless-beyond-55007.herokuapp.com/api/'
+
   constructor(private http: HttpClient) { }
 
   getCourses(): Observable<Course[]> {
-    return this.http.get<Course[]>('http://localhost:8080/api/courses')
+    return this.http.get<Course[]>(this.URL + 'courses')
   }
 
   addCourse(course: Course): Observable<Course> {
-    return this.http.post<Course>('http://localhost:8080/api/courses', course, httpOptions)
+    return this.http.post<Course>(this.URL + 'courses', course, httpOptions)
   }
 
   getBatchByCourseId(courseId: number): Observable<Batch[]> {
-    return this.http.get<Batch[]>('http://localhost:8080/api/courses/' + courseId + '/batches')
+    return this.http.get<Batch[]>(this.URL + 'courses/' + courseId + '/batches')
   }
 
   addBatchToCourse(batch: Batch, courseId: number): Observable<Batch> {
-    return this.http.post<Batch>('http://localhost:8080/api/courses/' + courseId + '/batches', batch, httpOptions)
+    return this.http.post<Batch>(this.URL + 'courses/' + courseId + '/batches', batch, httpOptions)
   }
 }

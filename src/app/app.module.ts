@@ -15,6 +15,9 @@ import { StudentsComponent } from './students/students.component';
 import { SubjectsComponent } from './subjects/subjects.component';
 import { TeachersComponent } from './teachers/teachers.component';
 import { StudentDetailComponent } from './student-detail/student-detail.component';
+import { LectureComponent } from './lecture/lecture.component';
+import { BatchStudentComponent } from './batch-student/batch-student.component';
+import { LectureService } from './Service/lecture.service';
 
 
 
@@ -26,7 +29,9 @@ import { StudentDetailComponent } from './student-detail/student-detail.componen
     SubjectsComponent,
     TeachersComponent,
     BatchesComponent,
-    StudentDetailComponent
+    StudentDetailComponent,
+    LectureComponent,
+    BatchStudentComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +39,7 @@ import { StudentDetailComponent } from './student-detail/student-detail.componen
     HttpClientModule,
     FormsModule
   ],
-  providers: [TeacherService, StudentService, CourseService, SubjectService, BatchService],
+  providers: [TeacherService, StudentService, CourseService, SubjectService, BatchService, LectureService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

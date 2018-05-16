@@ -10,13 +10,15 @@ const httpOptions = {
 @Injectable()
 export class SubjectService {
 
+  URL = 'https://fathomless-beyond-55007.herokuapp.com/api/'
+
   constructor(private http: HttpClient) { }
 
   getSubjects(): Observable<Subject[]> {
-    return this.http.get<Subject[]>('http://localhost:8080/api/subjects')
+    return this.http.get<Subject[]>(this.URL + 'subjects')
   }
 
   addSubject(subject: Subject): Observable<Subject> {
-    return this.http.post<Subject>('http://localhost:8080/api/subjects', subject, httpOptions)
+    return this.http.post<Subject>(this.URL + 'subjects', subject, httpOptions)
   }
 }

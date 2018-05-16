@@ -6,9 +6,15 @@ import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class BatchService {
 
+  URL = 'https://fathomless-beyond-55007.herokuapp.com/api/'
+
   constructor(private http: HttpClient) { }
 
   getBatches(): Observable<Batch[]> {
-    return this.http.get<Batch[]>('http://localhost:8080/api/batches')
+    return this.http.get<Batch[]>(this.URL + 'batches')
+  }
+
+  getBatchById(batchId: number): Observable<Batch> {
+    return this.http.get<Batch>(this.URL + `batches/${batchId}`)
   }
 }

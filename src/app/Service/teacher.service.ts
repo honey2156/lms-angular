@@ -10,13 +10,15 @@ const httpOptions = {
 @Injectable()
 export class TeacherService {
 
+  URL = 'https://fathomless-beyond-55007.herokuapp.com/api/'
+
   constructor(private http: HttpClient) { }
 
   getTeachers(): Observable<Teacher[]> {
-    return this.http.get<Teacher[]>('http://localhost:8080/api/teachers')
+    return this.http.get<Teacher[]>(this.URL + 'teachers')
   }
 
   addTeacher(teacher: Teacher): Observable<Teacher> {
-    return this.http.post<Teacher>('http://localhost:8080/api/teachers', teacher, httpOptions)
+    return this.http.post<Teacher>(this.URL + 'teachers', teacher, httpOptions)
   }
 }

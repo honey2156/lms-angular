@@ -31,7 +31,16 @@
     </div>
     <div style="overflow: auto; height: 400px; ">
       <ul class="list-group ">
-        <li *ngFor="let batch of batches " class="list-group-item ">{{batch.name}}</li>
+        <li *ngFor="let batch of batches " class="list-group-item ">
+          
+          <div class="input-group">
+              <label class="form-control">{{batch.name}}</label>
+              <div class="input-group-append">
+                <button routerLink="{{batch.id}}/students" class="btn btn-outline-secondary" type="button">Students</button>
+                <button routerLink="{{batch.id}}/lectures" class="btn btn-outline-secondary" type="button">Lectures</button>
+              </div>
+            </div>
+        </li>
       </ul>
     </div>
   </div>
@@ -58,3 +67,5 @@
     </div>
   </div>
 </div>
+
+<router-outlet></router-outlet>

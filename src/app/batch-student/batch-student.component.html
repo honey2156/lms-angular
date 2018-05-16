@@ -1,0 +1,33 @@
+  <div class="row">
+    <div class="col" style="">
+      <div class="container card p-2 mt-4">
+        <div style="text-align: center; ">
+          <h4>Students</h4>
+          <hr>
+        </div>
+        <div style="overflow: auto; height: 400px;">
+          <ul class="list-group">
+            <li *ngFor="let student of batchStudents" class="list-group-item" (click)="onSelect(student)">{{student.name}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  
+    <div class="col">
+      <div class="container card p-2 mt-4">
+        <div style="text-align: center; ">
+          <h4>Enroll Student</h4>
+          <hr>
+        </div>
+        <div style="height: 400px;" class="p-2">
+          <label>Select Student: </label>
+          <select class="form-control" #selectedStudentId>
+            <option *ngFor="let student of students" [value]="student.id">{{student.name}}</option>
+          </select>
+          <hr>
+          <button class="btn btn-primary form-control" (click)="enrollStudentInBatch(selectedStudentId.value)">Enroll</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    

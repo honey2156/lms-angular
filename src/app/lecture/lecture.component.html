@@ -1,0 +1,30 @@
+<div class="row mb-5">
+  <div class="col">
+    <div class="container card p-2 mt-2" style="height: 400px;">
+      <div style="text-align: center; ">
+        <h4>Add new Lecture</h4>
+        <hr>
+      </div>
+      <div class="input-group mb-3">
+        <input type="text" #lectureInput class="form-control" placeholder="Enter Lecture name">
+        <div class="input-group-append">
+          <button class="btn btn-primary" (click)="addLecture(lectureInput.value)">Add Lecture</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="container card p-2 mt-2">
+      <div style="text-align: center; ">
+        <h4>Lectures</h4>
+        <hr>
+      </div>
+      <div style="overflow: auto; height: 320px;">
+        <ul class="list-group">
+          <li *ngFor="let lecture of lectures" class="list-group-item">{{lecture.name}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
