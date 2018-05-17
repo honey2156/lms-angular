@@ -54,7 +54,7 @@ export class CoursesComponent implements OnInit {
     }
     this.courseService.addBatchToCourse({ name } as Batch, selectedCourseId)
       .subscribe((batch) => {
-        console.log('added ' + batch.name)
+        alert('added ' + batch.name)
       })
   }
 

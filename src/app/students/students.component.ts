@@ -58,7 +58,7 @@ export class StudentsComponent implements OnInit {
     if (studentId && batchId) {
       this.studentService.enrollStudentInBatch(studentId, batchId)
         .subscribe(() => {
-          console.log('successfully enrolled')
+          alert('successfully enrolled')
         })
     }
   }
