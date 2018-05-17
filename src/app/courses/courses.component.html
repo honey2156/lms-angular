@@ -19,7 +19,7 @@
     </div>
     <div style="overflow: auto; height: 400px; ">
       <ul class="list-group ">
-        <li *ngFor="let course of courses " (click)="getBatchByCourse(course) " class="list-group-item ">{{course.name}}</li>
+        <li *ngFor="let course of courses " (click)="getBatchByCourse(course) " class="list-group-item list-group-item-action ">{{course.name}}</li>
       </ul>
     </div>
   </div>
@@ -31,7 +31,7 @@
     </div>
     <div style="overflow: auto; height: 400px; ">
       <ul class="list-group ">
-        <li *ngFor="let batch of batches " class="list-group-item ">
+        <li *ngFor="let batch of batches " class="list-group-item">
           
           <div class="input-group">
               <label class="form-control">{{batch.name}}</label>
