@@ -1,4 +1,4 @@
-<div *ngIf="student" class="container card p-2 mt-4 mb-4">
+<div *ngIf="student" class="container card p-2 mt-4 mb-4" style="margin-bottom: 50px;">
   <div style="text-align: center; ">
     <h4>{{student.name | uppercase}} Details</h4>
     <hr>
@@ -6,7 +6,7 @@
   <div class="row p-2">
     <div class="col">
       <h6>Name: {{student.name}}</h6>
-      <button class="btn btn-secondary btn-sm form-control" (click)="getStudentBatches(student.id)" >List Batches enrolled</button>
+      <button class="btn btn-secondary btn-sm form-control" (click)="getStudentBatches(student.id)">List Batches enrolled</button>
     </div>
 
     <div class="col" style="overflow: auto; max-height: 250px;">
